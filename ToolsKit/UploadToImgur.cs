@@ -33,7 +33,10 @@ namespace ToolsKit
         private void UploadFromClipboard(object sender, EventArgs e)
         {
             var image = Clipboard.GetImage();
-            Upload(image);
+            string imagePath = mainFolderPath + @"\temp.jpeg";
+            image.Save(imagePath);
+            PostToImgur(imagePath);
+            File.Delete(imagePath);
         }
 
         private void UploadFromFolder(object sender, EventArgs e)
@@ -58,15 +61,23 @@ namespace ToolsKit
         private void UploadToImgurByUrl(object sender, EventArgs e)
         {
             string url = uploadFromUrlTextBox.Text;
+            if (!Uri.IsWellFormedUriString(url, UriKind.Absolute))
+            {
+                MessageBox.Show("Invalid URL");
+                return;
+            }
 
             uploadFromUrlTextBox.Visible = false;
+            uploadFromUrlTextBox.Text = String.Empty;
             this.Width = 500;
 
             using (WebClient client = new WebClient())
             {
-                client.DownloadFile(url,"." + url.Split('.')[url.Split('.').Length - 1]);
-
+                client.DownloadFile(url, mainFolderPath + @"\temp.jpg");
             }
+
+            PostToImgur(mainFolderPath + @"\temp.jpg");
+            File.Delete(mainFolderPath + @"\temp.jpg");
         }
 
         private string OpenFileDialog()
@@ -83,14 +94,6 @@ namespace ToolsKit
             }
 
             return null;
-        }
-
-        private void Upload(Image image)
-        {
-            string imagePath = mainFolderPath + @"\temp.jpeg";
-            image.Save(imagePath);
-            PostToImgur(imagePath);
-            File.Delete(imagePath);
         }
 
         private void PostToImgur(string imagFilePath)
@@ -135,6 +138,14 @@ namespace ToolsKit
 
             Regex regex = new Regex("<link>(.*)</link>");
             urlBox.Text = regex.Match(responseString).Groups[1].ToString();
+        }
+
+        private void SaveUrl(object sender, EventArgs e)
+        {
+            Uri url = new Uri(urlBox.Text);
+            string name = url.AbsolutePath.Remove(0, 1).Remove(url.AbsolutePath.Length - 5, 4);
+            File.WriteAllText(mainFolderPath + @"\" + $"{name}.txt",urlBox.Text);
+            urlBox.Text = String.Empty;
         }
     }
 }

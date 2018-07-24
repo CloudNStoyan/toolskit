@@ -33,7 +33,7 @@
             this.uploadFromFolderBtn = new System.Windows.Forms.Button();
             this.uploadFromUrlBtn = new System.Windows.Forms.Button();
             this.urlBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.saveImagesBtn = new System.Windows.Forms.Button();
             this.uploadFromUrlTextBox = new System.Windows.Forms.TextBox();
             this.uploadFromUrlSecondBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -75,14 +75,15 @@
             this.urlBox.Size = new System.Drawing.Size(311, 20);
             this.urlBox.TabIndex = 3;
             // 
-            // button4
+            // saveImagesBtn
             // 
-            this.button4.Location = new System.Drawing.Point(325, 41);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = true;
+            this.saveImagesBtn.Location = new System.Drawing.Point(325, 41);
+            this.saveImagesBtn.Name = "saveImagesBtn";
+            this.saveImagesBtn.Size = new System.Drawing.Size(150, 23);
+            this.saveImagesBtn.TabIndex = 4;
+            this.saveImagesBtn.Text = "Save";
+            this.saveImagesBtn.UseVisualStyleBackColor = true;
+            this.saveImagesBtn.Click += new System.EventHandler(this.SaveUrl);
             // 
             // uploadFromUrlTextBox
             // 
@@ -108,7 +109,7 @@
             this.ClientSize = new System.Drawing.Size(884, 75);
             this.Controls.Add(this.uploadFromUrlSecondBtn);
             this.Controls.Add(this.uploadFromUrlTextBox);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.saveImagesBtn);
             this.Controls.Add(this.urlBox);
             this.Controls.Add(this.uploadFromUrlBtn);
             this.Controls.Add(this.uploadFromFolderBtn);
@@ -127,7 +128,7 @@
         private System.Windows.Forms.Button uploadFromFolderBtn;
         private System.Windows.Forms.Button uploadFromUrlBtn;
         private System.Windows.Forms.TextBox urlBox;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button saveImagesBtn;
         private System.Windows.Forms.TextBox uploadFromUrlTextBox;
         private System.Windows.Forms.Button uploadFromUrlSecondBtn;
     }
