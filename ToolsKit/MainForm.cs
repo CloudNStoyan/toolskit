@@ -14,6 +14,8 @@ namespace ToolsKit
     public partial class MainForm : Form
     {
         string mainFolderPath = @"C:\Users\"+ Environment.UserName + @"\Documents\ToolsKit";
+        private ContextMenu menu = new ContextMenu();
+
         public MainForm()
         {
             InitializeComponent();
@@ -21,6 +23,27 @@ namespace ToolsKit
             {
                 Directory.CreateDirectory(mainFolderPath);
             }
+
+            menu.MenuItems.Add("Exit");
+            menu.MenuItems[0].Click += MenuItemMethods.Exit;
+            notifyIcon.ContextMenu = menu;
+        }
+
+        private void MinimizeToTray(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                notifyIcon.Visible = true;
+                notifyIcon.ShowBalloonTip(3000);
+                this.ShowInTaskbar = false;
+            }
+        }
+
+        private void NotifyIconClick(object sender, MouseEventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+            notifyIcon.Visible = false;
         }
 
         private void BeforeRunning()
@@ -44,6 +67,14 @@ namespace ToolsKit
             BeforeRunning();
 
             UploadToImgur form = new UploadToImgur();
+            form.Show();
+        }
+
+        private void RunYoutubeDownloader(object sender, EventArgs e)
+        {
+            BeforeRunning();
+
+            YoutubeDownloader form = new YoutubeDownloader();
             form.Show();
         }
     }
