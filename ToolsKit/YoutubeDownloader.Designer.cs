@@ -33,6 +33,7 @@
             this.downloadBtn = new System.Windows.Forms.Button();
             this.formatList = new System.Windows.Forms.ComboBox();
             this.thumbnailBox = new System.Windows.Forms.PictureBox();
+            this.currentProcessInformation = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thumbnailBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,11 +71,20 @@
             this.thumbnailBox.TabIndex = 3;
             this.thumbnailBox.TabStop = false;
             // 
+            // currentProcessInformation
+            // 
+            this.currentProcessInformation.AutoSize = true;
+            this.currentProcessInformation.Location = new System.Drawing.Point(223, 70);
+            this.currentProcessInformation.Name = "currentProcessInformation";
+            this.currentProcessInformation.Size = new System.Drawing.Size(0, 13);
+            this.currentProcessInformation.TabIndex = 4;
+            // 
             // YoutubeDownloader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 276);
+            this.Controls.Add(this.currentProcessInformation);
             this.Controls.Add(this.thumbnailBox);
             this.Controls.Add(this.formatList);
             this.Controls.Add(this.downloadBtn);
@@ -94,5 +104,6 @@
         private System.Windows.Forms.Button downloadBtn;
         private System.Windows.Forms.ComboBox formatList;
         private System.Windows.Forms.PictureBox thumbnailBox;
+        private System.Windows.Forms.Label currentProcessInformation;
     }
 }

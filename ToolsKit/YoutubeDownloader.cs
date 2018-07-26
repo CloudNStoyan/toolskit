@@ -47,6 +47,7 @@ namespace ToolsKit
                 return;
             }
 
+            currentProcessInformation.Text = "Loading...";
 
             var source = mainFolderPath + @"\";
             var youtube = YouTube.Default;
@@ -61,6 +62,7 @@ namespace ToolsKit
                 File.Delete(source + vidName);
             }
 
+            currentProcessInformation.Text = "Downloaded!";
         }
 
         private void ConvertToMp3(YouTubeVideo vid,string source)
@@ -101,7 +103,7 @@ namespace ToolsKit
             }
             else
             {
-
+                
                 this.thumbnailBox.Text = "No video found!";
             }
         }
