@@ -80,6 +80,7 @@
     <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="System.Messaging" />
     <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
     </Reference>
@@ -137,6 +138,12 @@
     <Compile Include="UploadToImgur.Designer.cs">
       <DependentUpon>UploadToImgur.cs</DependentUpon>
     </Compile>
+    <Compile Include="YoutubeAudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YoutubeAudio.Designer.cs">
+      <DependentUpon>YoutubeAudio.cs</DependentUpon>
+    </Compile>
     <Compile Include="YoutubeDownloader.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="UploadToImgur.resx">
       <DependentUpon>UploadToImgur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="YoutubeAudio.resx">
+      <DependentUpon>YoutubeAudio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="YoutubeDownloader.resx">
       <DependentUpon>YoutubeDownloader.cs</DependentUpon>

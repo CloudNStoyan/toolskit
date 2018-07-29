@@ -77,5 +77,20 @@ namespace ToolsKit
             YoutubeDownloader form = new YoutubeDownloader();
             form.Show();
         }
+
+        private void RunYoutubeAudio(object sender, EventArgs e)
+        {
+            BeforeRunning();
+
+            YoutubeAudio form = new YoutubeAudio();
+            form.Show();
+        }
+
+        private void RunRemovePassagers(object sender, EventArgs e)
+        {
+            BeforeRunning();
+
+
+        }
     }
 }
